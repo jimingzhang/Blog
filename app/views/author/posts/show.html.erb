@@ -1,7 +1,8 @@
+<p id="notice"><%= notice %></p>
+
 <h1>Detail:</h1>
-<h2>Title: <%= @post.title %></h2>
-<h3>Body:</h3>
+<h2><%= @post.title %></h2>
 <p><%= @post.body %></p>
 <br>
-<%= link_to 'Edit', edit_author_post_path(@post) %>
-<%= link_to 'Back', author_posts_path %>
+<%= link_to t('edit'), edit_author_post_path(@post) %>
+<%= link_to t('return'), author_posts_path %>

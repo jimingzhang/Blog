@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <h1>Author's All Posts:</h1>
 
 <table>
@@ -11,13 +13,13 @@
         <td><%= post.title %></td>
         <!-- <td><%= post.body %></td> -->
         <td><%= post.published %></td>
-        <td><%= link_to 'Show', author_post_path(post) %></td>
-        <td><%= link_to 'Edit', edit_author_post_path(post) %></td>
-        <td><%= link_to 'Delete', author_post_path(post), method: :delete, data:{ confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('show'), author_post_path(post) %></td>
+        <td><%= link_to t('edit'), edit_author_post_path(post) %></td>
+        <td><%= link_to t('delete'), author_post_path(post), method: :delete, data:{ confirm: t('are_you_sure_delete') } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'New Post', new_author_post_path %>
+<%= link_to t('new_post'), new_author_post_path %>

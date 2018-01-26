@@ -16,7 +16,7 @@ class Author::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to author_posts_path
+      redirect_to author_posts_path, notice: t('create_success')
     else
       render 'new'
     end
@@ -28,7 +28,7 @@ class Author::PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to author_post_path(@post)
+      redirect_to author_post_path(@post), notice: t('update_success')
     else
       render 'edit'
     end
@@ -36,6 +36,7 @@ class Author::PostsController < ApplicationController
 
   def destroy
     @post.destroy
+    flash[:notice] = t('delete_sucess')
     redirect_to author_posts_path
   end
 
