@@ -3,7 +3,7 @@ class Author::PostsController < ApplicationController
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = current_author.posts
   end
 
   def show
@@ -16,6 +16,7 @@ class Author::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.author = current_author
     if @post.save
       redirect_to author_posts_path, notice: t('create_success')
     else
@@ -44,7 +45,7 @@ class Author::PostsController < ApplicationController
   private
 
   def find_post
-    @post = Post.find(params[:id])
+    @post = current_author.posts.find(params[:id])
   end
 
   def post_params
