@@ -1,4 +1,5 @@
 class Author::PostsController < ApplicationController
+  before_action :authenticate_author!
   before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
