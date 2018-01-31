@@ -1,5 +1,5 @@
 ---
-cn:
+zh-CN:
   errors_not_save: "存在%{error_count}个错误，无法保存"
   return: "返回"
   new_post: "新增文章"
